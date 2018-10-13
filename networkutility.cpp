@@ -8,7 +8,6 @@ bool NetworkUtility::isAddressValid(QString address, bool acceptHttp) {
 		pattern = "^";
 
 	pattern += "[a-z0-9]+([\\-\\.]{1}[a-z0-9]+)*\\.[a-z]{2,5}(:[0-9]{1,5})?(\\/.*)?$";
-	qDebug() << "URL pattern is \"" << pattern << "\"";
 	QRegularExpression re(pattern);
 	QRegularExpressionMatch match = re.match(address);
 	return match.hasMatch();

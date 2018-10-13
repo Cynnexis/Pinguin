@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include "dsettings.h"
+#include "pingloop.h"
 
 #include <QMainWindow>
 #include <QTcpSocket>
@@ -34,6 +35,8 @@ private slots:
 private:
 	Ui::MainWindow *ui;
 
+	Preferences* pref;
+	PingLoop loop;
 	DSettings* diagSettings;
 };
 

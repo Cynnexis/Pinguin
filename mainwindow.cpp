@@ -6,11 +6,17 @@ MainWindow::MainWindow(QWidget *parent) :
 	ui(new Ui::MainWindow) {
 	ui->setupUi(this);
 	this->setWindowTitle(qApp->applicationName());
-	//this->setWindowIcon(QIcon(":/images/pinguin64"));
+
+	pref = Preferences::getInstance(this);
+
+	connect(&loop, SIGNAL(resultAvailable(int)), this, SLOT(onReceivePing(int)));
+	loop.start();
 }
 
 MainWindow::~MainWindow() {
 	delete ui;
+	loop.stop();
+	loop.wait();
 }
 
 void MainWindow::on_pb_debug_clicked() {

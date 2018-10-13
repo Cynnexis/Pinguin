@@ -2,6 +2,11 @@
 #define PINGLOOP_H
 
 #include "ping.h"
+#include "preferences.h"
+
+#ifdef Q_OS_WIN
+#include <windows.h> // for Sleep
+#endif
 
 #include <iostream>
 #include <QObject>
@@ -28,7 +33,7 @@ signals:
 
 private:
 	Ping ping;
-	QSettings pref;
+	Preferences* pref;
 	bool _pause = false;
 	bool _stop = false;
 
