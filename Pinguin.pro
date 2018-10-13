@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui charts network
+QT       += core gui charts network concurrent
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -28,16 +28,23 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     dsettings.cpp \
-    ping.cpp
+    ping.cpp \
+	networkutility.cpp
 
 HEADERS += \
         mainwindow.h \
     dsettings.h \
-    ping.h
+    ping.h \
+	networkutility.h
 
 FORMS += \
         mainwindow.ui \
     dsettings.ui
+
+RESOURCES += \
+	resources.qrc
+
+RC_FILE = pinguin.rc
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -46,4 +53,24 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 DISTFILES += \
     README.md \
-    .gitignore
+    .gitignore \
+    compile_res.bat \
+    pinguin.rc
+
+test {
+	message(Test build)
+	QT += testlib
+	TARGET = UnitTests
+
+	HEADERS -= mainwindow.h
+
+	SOURCES -= main.cpp \
+		mainwindow.cpp
+
+	HEADERS += test/networkutilitytestcase.h
+
+	SOURCES += test/main.cpp \
+		test/networkutilitytestcase.cpp
+} else {
+	message(Normal build)
+}

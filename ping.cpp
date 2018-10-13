@@ -1,7 +1,9 @@
 #include "ping.h"
 
 Ping::Ping(QObject *parent) : QObject(parent) {
-	//
+}
+
+Ping::~Ping() {
 }
 
 /**
@@ -12,7 +14,6 @@ Ping::Ping(QObject *parent) : QObject(parent) {
  * @return Return the time in millisecond, or -1 if the destination could not be reached.
  */
 int Ping::measure(QString address, int port) {
-
 	QElapsedTimer stopwatch;
 	QTcpSocket* socket = new QTcpSocket(this);
 
@@ -21,25 +22,13 @@ int Ping::measure(QString address, int port) {
 	//								30s
 	if (socket->waitForConnected(30000)) {
 		int ping_ms = stopwatch.elapsed();
-		measureDone(ping_ms);
+		emit measureDone(ping_ms);
 		socket->close();
 		return ping_ms;
 	}
-	else
+	else {
+		emit measureNotReachable();
+		emit measureDone(-1);
 		return -1;
-}
-
-void Ping::measureAsync(QString address, int port) {
-	QSignalMapper* mapper = new QSignalMapper(this);
-
-	QThread thread;
-	moveToThread(&thread);
-
-	connect(&thread, SIGNAL(started()), mapper, SLOT(map()));
-
-	mapper->setMapping(&thread, address + ":" + QString::number(port));
-
-	QString strAddress = address;
-	connect(mapper, SIGNAL(mapped(QString)), this, SLOT(measure(QString)));
-	thread.start();
+	}
 }

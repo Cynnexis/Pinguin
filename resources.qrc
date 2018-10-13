@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/images">
+        <file alias="pinguin16">res/images/pinguin16.png</file>
+        <file alias="pinguin32">res/images/pinguin32.png</file>
+        <file alias="pinguin48">res/images/pinguin48.png</file>
+        <file alias="pinguin64">res/images/pinguin64.png</file>
+        <file alias="pinguin1024">res/images/pinguin1024.png</file>
+    </qresource>
+    <qresource prefix="/svg">
+        <file alias="pinguin">res/svg/pinguin.svg</file>
+    </qresource>
+</RCC>

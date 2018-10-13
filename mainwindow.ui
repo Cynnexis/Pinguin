@@ -7,11 +7,16 @@
     <x>0</x>
     <y>0</y>
     <width>400</width>
-    <height>300</height>
+    <height>319</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
+  </property>
+  <property name="windowIcon">
+   <iconset theme=":/images/pinguin64">
+    <normalon>:/images/pinguin64</normalon>
+   </iconset>
   </property>
   <property name="locale">
    <locale language="English" country="Canada"/>

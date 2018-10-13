@@ -24,9 +24,12 @@ public:
 
 private slots:
 	void on_pb_debug_clicked();
-	void on_actionSettings_triggered();
-
 	void onReceivePing(int ping_ms);
+
+	void on_actionSettings_triggered();
+	void on_actionExit_triggered();
+	void on_actionAbout_Pinguin_triggered();
+	void on_actionAbout_Qt_triggered();
 
 private:
 	Ui::MainWindow *ui;

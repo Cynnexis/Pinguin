@@ -1,0 +1,2 @@
+rcc resources.qrc
+pause

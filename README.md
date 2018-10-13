@@ -18,6 +18,7 @@ This project has been built with:
 ## Links ##
 * [Qt Doc --- Qt Charts Overview](https://doc.qt.io/qt-5.11/qtcharts-overview.html#line-and-spline-charts): Qt Documentation about how to plot charts.
 * [Qt Doc --- LineChart Example](https://doc.qt.io/qt-5.11/qtcharts-linechart-example.html): Example about how to create a line-chart.
+* [Unit testing in Qt using QtTest](http://xilexio.org/?p=125): How to make QTest Unit.
 
 ## Versioning ##
 The project uses Git as a version control system, and [GitHub](https://github.com/) as a hub. [GitHub Desktop](https://desktop.github.com/) as been used as a client.

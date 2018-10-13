@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="20"
+   height="20"
+   viewBox="0 0 5.2916665 5.2916668"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   sodipodi:docname="pinguin.svg"
+   inkscape:export-filename="C:\Users\Valentin\Documents\QtProjects\Pinguin\res\images\pinguin1024.png"
+   inkscape:export-xdpi="4915.2002"
+   inkscape:export-ydpi="4915.2002">
+  <title
+     id="title817">Pinguin</title>
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="31.678384"
+     inkscape:cx="9.3570733"
+     inkscape:cy="11.41906"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer3"
+     showgrid="true"
+     units="px"
+     inkscape:snap-bbox="true"
+     inkscape:bbox-paths="true"
+     inkscape:bbox-nodes="true"
+     inkscape:snap-bbox-edge-midpoints="true"
+     inkscape:snap-bbox-midpoints="true"
+     inkscape:object-paths="true"
+     inkscape:snap-intersection-paths="true"
+     inkscape:snap-smooth-nodes="true"
+     inkscape:snap-midpoints="true"
+     inkscape:snap-object-midpoints="true"
+     inkscape:snap-center="true"
+     inkscape:snap-text-baseline="true"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:snap-global="false">
+    <inkscape:grid
+       type="xygrid"
+       id="grid815" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>Pinguin</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Beak &amp; Feet">
+    <path
+       style="fill:#ffb55a;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 2.38125,0.79374999 H 1.7197917 c -0.070722,0.00808 -0.3939322,0.0570123 -0.3968751,0.26458331 H 2.38125 Z"
+       id="path822"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccc" />
+    <path
+       style="fill:#ffb55a;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 2.38125,4.7625 -0.79375,0.2645833 1.190625,1e-7 0.1322917,-0.1322917 0.1322916,0.1322917 1.190625,-1e-7 L 3.4395833,4.7625 Z"
+       id="path839"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccccccc" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer4"
+     inkscape:label="Wing"
+     style="display:inline">
+    <path
+       style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 3.2299246,1.57746 C 3.4238596,1.7316327 3.9517824,2.2848121 3.9717029,3.6681408 3.7614082,3.0459339 3.4030076,2.4542141 2.9978237,2.0387091 Z"
+       id="path842"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccc" />
+  </g>
+  <g
+     inkscape:label="Body"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-291.70832)"
+     style="display:inline">
+    <path
+       style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.9644013"
+       d="m 2.6458333,291.9729 c -0.2645833,0 -0.5312081,0.26459 -0.5291667,0.52917 0.00295,0.3827 0.2645834,0.52917 0.2645834,0.52917 0,0 -0.5157939,0.47024 -0.5291667,1.32291 -0.012746,0.8127 0.5291667,2.11667 0.5291667,2.11667 h 1.0583333 c 0,0 0.2926586,-1.4284 0.2645834,-2.11667 -0.04013,-0.98379 -0.7937501,-1.32291 -0.7937501,-1.32291 0,0 0.2645834,-0.26459 0.2645834,-0.52917 0,-0.26458 -0.2645833,-0.52917 -0.5291667,-0.52917 z"
+       id="path819"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="sscsccscss" />
+    <ellipse
+       style="opacity:1;fill:#ebebeb;fill-opacity:1;stroke:none;stroke-width:0.05883413;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.9644013"
+       id="path837"
+       cx="2.5631537"
+       cy="294.40121"
+       rx="0.61268836"
+       ry="0.98868299" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer5"
+     inkscape:label="Wing White"
+     style="display:inline">
+    <path
+       style="fill:#ebebeb;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 3.7109593,2.7554544 C 3.8251648,2.8358036 3.9312267,3.0821847 3.9718792,3.6676667 3.9257619,3.3675865 3.8000139,3.1517699 3.7669004,3.0610881 3.6867472,2.9620123 3.7255875,2.8949802 3.7109593,2.7554544 Z"
+       id="path842-2"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccc" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="Eye">
+    <circle
+       style="opacity:1;fill:#ebebeb;fill-opacity:1;stroke:none;stroke-width:0.08804353;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.9644013"
+       id="path835"
+       cx="2.4850426"
+       cy="0.64475721"
+       r="0.1702317" />
+  </g>
+</svg>
