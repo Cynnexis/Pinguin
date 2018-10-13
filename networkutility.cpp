@@ -26,8 +26,37 @@ QString NetworkUtility::removeHttp(QString address) {
 	return address.remove(re);
 }
 
-void NetworkUtility::splitHostname(QString hostname, QString& address, int& port) {
-	//
+/**
+ * @brief NetworkUtility::splitHostname Split the address and the port from the hostname
+ * @param hostname The URL
+ * @param address The reference to the address
+ * @param port The reference to the port
+ * @return Return the address, and the port if found (if not found, the port is equal to -1). If the conversion is finished, returned `true`, other `false`.
+ */
+bool NetworkUtility::splitHostname(QString hostname, QString& address, int& port) {
+	hostname = removeHttp(hostname);
+	if (!isAddressValid(hostname))
+		return false;
+
+	if (!hostname.contains(':')) {
+		address = hostname;
+		port = -1;
+		return true;
+	}
+
+	address = hostname.split(':')[0];
+	QString s_port = hostname.split(':')[1];
+	s_port = s_port.split('/')[0];
+
+	bool success = false;
+	port = s_port.toInt(&success);
+
+	if (!success) {
+		port = -1;
+		return false;
+	}
+
+	return isAddressValid(address) && isPortValid(port);
 }
 
 

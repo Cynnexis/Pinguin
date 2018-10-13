@@ -11,6 +11,7 @@ int main(int argc, char *argv[])
 	QCoreApplication::setOrganizationName("Aezy");
 	QCoreApplication::setApplicationName(qApp->applicationName());
 	QApplication a(argc, argv);
+
 	MainWindow w;
 	w.show();
 

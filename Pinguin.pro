@@ -29,13 +29,17 @@ SOURCES += \
         mainwindow.cpp \
     dsettings.cpp \
     ping.cpp \
-	networkutility.cpp
+	networkutility.cpp \
+    pingloop.cpp \
+    preferences.cpp
 
 HEADERS += \
         mainwindow.h \
     dsettings.h \
     ping.h \
-	networkutility.h
+	networkutility.h \
+    pingloop.h \
+    preferences.h
 
 FORMS += \
         mainwindow.ui \

@@ -28,7 +28,6 @@ int Ping::measure(QString address, int port) {
 	}
 	else {
 		emit measureNotReachable();
-		emit measureDone(-1);
 		return -1;
 	}
 }

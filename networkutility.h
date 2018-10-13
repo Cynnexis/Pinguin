@@ -15,7 +15,7 @@ namespace NetworkUtility
 	bool isAddressValid(QString address, bool acceptHttp = true);
 	bool isPortValid(int port);
 	QString removeHttp(QString address);
-	void splitHostname(QString hostname, QString& address, int& port);
+	bool splitHostname(QString hostname, QString& address, int& port);
 };
 
 #endif // NETWORKUTILITY_H

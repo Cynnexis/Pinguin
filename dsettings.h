@@ -5,6 +5,7 @@
 #include <QSettings>
 
 #include "ping.h"
+#include "preferences.h"
 
 namespace Ui {
 	class DSettings;
@@ -28,7 +29,7 @@ private slots:
 
 private:
 	Ui::DSettings *ui;
-	QSettings pref;
+	Preferences* pref;
 };
 
 #endif // DSETTINGS_H
