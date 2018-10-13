@@ -26,10 +26,11 @@ bool Preferences::isFirstLaunch() {
 
 void Preferences::setFirstLaunch(bool firstLaunch) {
 	settings.setValue("app/firstLaunch", firstLaunch);
+	emit firstLaunchChanged(firstLaunch);
 }
 
 void Preferences::initFirstLaunch() {
-	settings.setValue("app/firstLaunch", true);
+	setFirstLaunch(true);
 }
 
 QString Preferences::getAddress() {
@@ -51,11 +52,14 @@ void Preferences::setAddress(QString address) {
 		bool success = NetworkUtility::splitHostname(address, atomicAddress, atomicPort);
 		if (success) {
 			settings.setValue("server/address", atomicAddress);
+			emit addressChanged(atomicAddress);
 			if (atomicPort > 0)
 				setPort(atomicPort);
 		}
-		else
+		else {
 			settings.setValue("server/address", address);
+			emit addressChanged(address);
+		}
 	}
 }
 
@@ -75,8 +79,10 @@ int Preferences::getPort() {
 }
 
 void Preferences::setPort(int port) {
-	if (NetworkUtility::isPortValid(port))
+	if (NetworkUtility::isPortValid(port)) {
 		settings.setValue("server/port", port);
+		emit portChanged(port);
+	}
 }
 
 void Preferences::initPort() {
@@ -95,8 +101,10 @@ int Preferences::getTimeout() {
 }
 
 void Preferences::setTimeout(int timeout_s) {
-	if (0 <= timeout_s && timeout_s <= 60)
+	if (0 <= timeout_s && timeout_s <= 60) {
 		settings.setValue("server/timeout", timeout_s);
+		emit timeoutChanged(timeout_s);
+	}
 }
 
 void Preferences::initTimeout() {

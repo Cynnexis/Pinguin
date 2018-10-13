@@ -31,7 +31,7 @@ void MainWindow::onReceivePing(int ping_ms) {
 		ui->le_currentPing->setText(QString::number(ping_ms));
 	}
 	else
-		QMessageBox::information(this, "Host not reachable", "The host cannot be reached. Is it in Antartica?");
+		ui->statusBar->showMessage(tr("The host cannot be reached. Is it in Antartica?"), 10000);
 }
 
 void MainWindow::on_actionSettings_triggered() {

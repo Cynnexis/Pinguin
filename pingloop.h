@@ -37,8 +37,14 @@ private:
 	bool _pause = false;
 	bool _stop = false;
 
+	QString address;
+	int port;
+
 private slots:
 	void transferResult(int ping_ms = -1);
+
+	void updateAddress(QString newAddress);
+	void updatePort(int newPort);
 };
 
 #endif // PINGLOOP_H

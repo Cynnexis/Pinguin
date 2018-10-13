@@ -33,6 +33,12 @@ public:
 	void setTimeout(int timeout_ms);
 	void initTimeout();
 
+signals:
+	void firstLaunchChanged(bool);
+	void addressChanged(QString);
+	void portChanged(int);
+	void timeoutChanged(int);
+
 private:
 	explicit Preferences(QObject* parent = nullptr);
 
