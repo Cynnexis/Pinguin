@@ -71,7 +71,7 @@ void DSettings::on_le_port_editingFinished() {
 }
 
 void DSettings::on_pb_checkConnection_clicked() {
-	Ping p(this);
+	Ping p;
 
 	QString address = pref.value("server/address", "").toString();
 	bool convertSuccess = false;

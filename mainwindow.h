@@ -24,8 +24,9 @@ public:
 
 private slots:
 	void on_pb_debug_clicked();
-
 	void on_actionSettings_triggered();
+
+	void onReceivePing(int ping_ms);
 
 private:
 	Ui::MainWindow *ui;

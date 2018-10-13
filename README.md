@@ -28,6 +28,6 @@ This project has been made by **Valentin Berger** (username: **[Cynnexis](https:
 ## License ##
 This project is under the **GNU Affero General Public License v3.0** - see [`LICENSE.txt`](https://github.com/Cynnexis/Pinguin/blob/master/LICENSE.txt) for more detail (I know that nobody will look at this file, licenses are so boring...)
 
-[badge-language]: https://img.shields.io/badge/language-GAMS-purple.svg?longCache=true&style=flat
+[badge-language]: https://img.shields.io/badge/language-C++-purple.svg?longCache=true&style=flat
 [badge-framework]: https://img.shields.io/badge/framework-Qt-green.svg?longCache=true&style=flat
 [badge-license]: https://img.shields.io/badge/license-AGPL--3.0-yellow.svg?longCache=true&style=flat
