@@ -1,6 +1,8 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include <iostream>
+
 #include "dsettings.h"
 #include "pingloop.h"
 
@@ -8,8 +10,12 @@
 #include <QTcpSocket>
 #include <QMessageBox>
 #include <QElapsedTimer>
+#include <QtCharts/QChart>
+#include <QtCharts/QLineSeries>
 
 #include <QDebug>
+
+using namespace std;
 
 namespace Ui {
 	class MainWindow;
@@ -38,6 +44,9 @@ private:
 	Preferences* pref;
 	PingLoop loop;
 	DSettings* diagSettings;
+
+	QtCharts::QLineSeries* ls_ping;
+	QtCharts::QChart* c_linePing;
 };
 
 #endif // MAINWINDOW_H

@@ -10,6 +10,13 @@ MainWindow::MainWindow(QWidget *parent) :
 	pref = Preferences::getInstance(this);
 
 	connect(&loop, SIGNAL(resultAvailable(int)), this, SLOT(onReceivePing(int)));
+
+	c_linePing = new QtCharts::QChart();
+	c_linePing->legend()->show();
+	c_linePing->createDefaultAxes();
+	c_linePing->setTitle(tr("Ping (ms)/Time (s)"));
+	ui->gv_chartPlaceholder->setChart(c_linePing);
+
 	loop.start();
 }
 
@@ -29,6 +36,8 @@ void MainWindow::onReceivePing(int ping_ms) {
 	if (ping_ms > 0) {
 		qDebug() << "Connected: ping = " << ping_ms << "ms";
 		ui->le_currentPing->setText(QString::number(ping_ms));
+		ls_ping->append(ls_ping->points().last().x() + 1, ping_ms);
+		c_linePing->addSeries(ls_ping);
 	}
 	else
 		ui->statusBar->showMessage(tr("The host cannot be reached. Is it in Antartica?"), 10000);

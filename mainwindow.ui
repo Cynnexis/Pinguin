@@ -37,11 +37,11 @@
      </widget>
     </item>
     <item>
-     <widget class="QWidget" name="w_chartPlaceholder" native="true">
+     <widget class="QChartView" name="gv_chartPlaceholder">
       <property name="minimumSize">
        <size>
         <width>0</width>
-        <height>100</height>
+        <height>50</height>
        </size>
       </property>
      </widget>
@@ -156,6 +156,13 @@
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>QChartView</class>
+   <extends>QGraphicsView</extends>
+   <header>QtCharts</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>
