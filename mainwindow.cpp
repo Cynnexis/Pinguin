@@ -9,14 +9,22 @@ MainWindow::MainWindow(QWidget *parent) :
 
 	pref = Preferences::getInstance(this);
 
+	connect(pref, SIGNAL(addressChanged(QString)), this, SLOT(onAddressUpdated(QString)));
+	connect(pref, SIGNAL(portChanged(int)), this, SLOT(onPortUpdated(int)));
 	connect(&loop, SIGNAL(resultAvailable(int)), this, SLOT(onReceivePing(int)));
 
-	ls_ping = new QLineSeries(this);
-	/*c_linePing = new QChart();
-	c_linePing->legend()->show();
-	c_linePing->createDefaultAxes();
-	c_linePing->setTitle(tr("Ping (ms)/Time (s)"));
-	ui->gv_chartPlaceholder->setChart(c_linePing);*/
+	updateServer(pref->getAddress(), pref->getPort());
+
+	pc_chart = new PingChart();
+	ui->gv_chartPlaceholder->setChart(pc_chart);
+	ui->gv_chartPlaceholder->setRenderHint(QPainter::Antialiasing);
+
+#ifdef QT_DEBUG
+	qDebug() << "It's DEBUG TIME!";
+	ui->pb_debug->setVisible(true);
+#else
+	ui->pb_debug->setVisible(false);
+#endif
 
 	loop.start();
 }
@@ -27,18 +35,48 @@ MainWindow::~MainWindow() {
 	loop.wait();
 }
 
+void MainWindow::updateServer(QString address, int port) {
+	QString server = "[";
+	QString actual = ui->l_server_ip->text();
+
+	if (address != "")
+		server += address;
+	else
+		server += actual.replace("[", "").split(":")[0];
+
+	server += ":";
+
+	if (port > 0)
+		server += QString::number(port);
+	else
+		server += actual.replace("]", "").split(":")[1];
+
+	server += "]";
+	ui->l_server_ip->setText(server);
+}
+
 void MainWindow::on_pb_debug_clicked() {
-	Ping p;
-	connect(&p, SIGNAL(measureDone(int)), this, SLOT(onReceivePing(int)));
-	p.measure("www.google.com", 80);
+	QString content = "";
+	for (int i = 0; i < pc_chart->getSeries().points().length(); i++)
+		content += "(" + QString::number(pc_chart->getSeries().points()[i].x()) + ", " + QString::number(pc_chart->getSeries().points()[i].y()) + ")\n";
+
+	QMessageBox::information(this, "Debug", content);
+}
+
+void MainWindow::onAddressUpdated(QString address) {
+	updateServer(address);
+}
+
+void MainWindow::onPortUpdated(int port) {
+	updateServer("", port);
 }
 
 void MainWindow::onReceivePing(int ping_ms) {
 	if (ping_ms > 0) {
 		qDebug() << "Connected: ping = " << ping_ms << "ms";
 		ui->le_currentPing->setText(QString::number(ping_ms));
-		//ls_ping->append(ls_ping->points().last().x() + 1, ping_ms);
-		//c_linePing->addSeries(ls_ping);
+		pc_chart->append(ping_ms);
+		ui->gv_chartPlaceholder->repaint();
 	}
 	else
 		ui->statusBar->showMessage(tr("The host cannot be reached. Is it in Antartica?"), 10000);

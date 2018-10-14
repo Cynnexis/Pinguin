@@ -4,6 +4,7 @@
 #include <iostream>
 
 #include "dsettings.h"
+#include "pingchart.h"
 #include "pingloop.h"
 
 #include <QMainWindow>
@@ -35,8 +36,12 @@ public:
 	explicit MainWindow(QWidget *parent = nullptr);
 	~MainWindow();
 
+	void updateServer(QString address = "", int port = -1);
+
 private slots:
 	void on_pb_debug_clicked();
+	void onAddressUpdated(QString address);
+	void onPortUpdated(int port);
 	void onReceivePing(int ping_ms);
 
 	void on_actionSettings_triggered();
@@ -51,8 +56,7 @@ private:
 	PingLoop loop;
 	DSettings* diagSettings;
 
-	QLineSeries* ls_ping;
-	QChart* c_linePing;
+	PingChart* pc_chart;
 };
 
 #endif // MAINWINDOW_H

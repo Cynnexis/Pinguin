@@ -31,7 +31,8 @@ SOURCES += \
     ping.cpp \
 	networkutility.cpp \
     pingloop.cpp \
-    preferences.cpp
+    preferences.cpp \
+    pingchart.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -39,7 +40,8 @@ HEADERS += \
     ping.h \
 	networkutility.h \
     pingloop.h \
-    preferences.h
+    preferences.h \
+    pingchart.h
 
 FORMS += \
         mainwindow.ui \
