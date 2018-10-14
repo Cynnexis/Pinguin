@@ -35,7 +35,15 @@ public:
 
 private:
 	int xi;
+	const int xeps = 1, yeps = 10;
+	int xmin, xmax;
+	int ymin, ymax;
+	QValueAxis *axisX;
+	QValueAxis *axisY;
 	QLineSeries* ls_ping;
+
+private slots:
+	void onPointAdded(int index);
 };
 
 #endif // PINGCHART_H

@@ -39,20 +39,20 @@ void DSettings::on_pb_checkConnection_clicked() {
 	int port = pref->getPort();
 
 	if (address.isEmpty() || !NetworkUtility::isAddressValid(address)) {
-		ui->l_result->setText("Please enter a valid address.");
+		ui->l_result->setText(tr("Please enter a valid address."));
 		return;
 	}
 
 	if (!NetworkUtility::isPortValid(port)) {
-		ui->l_result->setText("Please enter a valid port.");
+		ui->l_result->setText(tr("Please enter a valid port."));
 		return;
 	}
 
 	int ping_ms = p.measure(address, port);
 	if (ping_ms < 0)
-		ui->l_result->setText("The host is not reachable.");
+		ui->l_result->setText(tr("The host is not reachable."));
 	else
-		ui->l_result->setText(QString("The host is reachable! And the ping is %1ms").arg(ping_ms));
+		ui->l_result->setText(QString(tr("The host is reachable! And the ping is %1ms")).arg(ping_ms));
 }
 
 void DSettings::on_sb_timeout_s_editingFinished() {

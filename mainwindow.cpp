@@ -20,7 +20,7 @@ MainWindow::MainWindow(QWidget *parent) :
 	ui->gv_chartPlaceholder->setRenderHint(QPainter::Antialiasing);
 
 #ifdef QT_DEBUG
-	qDebug() << "It's DEBUG TIME!";
+	qDebug() << tr("It's DEBUG TIME!");
 	ui->pb_debug->setVisible(true);
 #else
 	ui->pb_debug->setVisible(false);
@@ -76,6 +76,7 @@ void MainWindow::onReceivePing(int ping_ms) {
 		qDebug() << "Connected: ping = " << ping_ms << "ms";
 		ui->le_currentPing->setText(QString::number(ping_ms));
 		pc_chart->append(ping_ms);
+		pc_chart->update();
 		ui->gv_chartPlaceholder->repaint();
 	}
 	else

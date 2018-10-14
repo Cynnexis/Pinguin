@@ -16,8 +16,8 @@ This project has been built with:
 * **❤️Love❤️:** Because we all need it!
 
 ## Links ##
-* [Qt Doc --- Qt Charts Overview](https://doc.qt.io/qt-5.11/qtcharts-overview.html#line-and-spline-charts): Qt Documentation about how to plot charts.
-* [Qt Doc --- LineChart Example](https://doc.qt.io/qt-5.11/qtcharts-linechart-example.html): Example about how to create a line-chart.
+* [Qt Doc - Qt Charts Overview](https://doc.qt.io/qt-5.11/qtcharts-overview.html#line-and-spline-charts): Qt Documentation about how to plot charts.
+* [Qt Doc - LineChart Example](https://doc.qt.io/qt-5.11/qtcharts-linechart-example.html): Example about how to create a line-chart.
 * [Unit testing in Qt using QtTest](http://xilexio.org/?p=125): How to make QTest Unit.
 
 ## Versioning ##

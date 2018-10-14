@@ -1,14 +1,35 @@
 #include "pingchart.h"
 
 PingChart::PingChart() : QChart() {
-	ls_ping = new QLineSeries(this);
-
 	xi = 0;
 
-	this->legend()->show();
+	xmin = 0;
+	xmax = 10 + xeps;
+	ymin = 0;
+	ymax = 500 + yeps;
+
+	axisX = new QValueAxis();
+	axisY = new QValueAxis();
+
+	axisX->setTickCount(1);
+	axisX->setRange(xmin, xmax);
+	axisY->setRange(ymin, ymax);
+	//axisY->setTickCount(50);
+
+	this->addAxis(axisX, Qt::AlignBottom);
+
+	ls_ping = new QLineSeries(this);
+	connect(ls_ping, SIGNAL(pointAdded(int)), this, SLOT(onPointAdded(int)));
+
+	this->legend()->hide();
 	this->addSeries(ls_ping);
-	this->createDefaultAxes();
 	this->setTitle(tr("Ping (ms)"));
+
+	axisY->setLinePenColor(ls_ping->pen().color());
+	this->addAxis(axisY, Qt::AlignLeft);
+
+	ls_ping->attachAxis(axisX);
+	ls_ping->attachAxis(axisY);
 }
 
 QLineSeries& PingChart::getSeries() {
@@ -16,7 +37,7 @@ QLineSeries& PingChart::getSeries() {
 }
 
 void PingChart::append(const QPointF point) {
-	qDebug() << "PingChart::append(" << QString::number(point.x()) << ", " << QString::number(point.y()) << ")> Point Added";
+	qDebug() << "PingChart::append(" + QString::number(point.x()) + ", " + QString::number(point.y()) + ")> Point Added";
 	*ls_ping << point;
 }
 
@@ -46,4 +67,23 @@ PingChart& PingChart::operator<<(const QPointF point) {
 PingChart& PingChart::operator<<(const qreal y) {
 	append(y);
 	return *this;
+}
+
+void PingChart::onPointAdded(int index) {
+	int x, y;
+	x = round(ls_ping->points()[index].x());
+	y = round(ls_ping->points()[index].y());
+
+#ifdef QT_DEBUG
+	qDebug() << "PingChart::onPointAdded(index=" + QString::number(index) + ")> Point (" + QString::number(x) + ", " + QString::number(y) + ") added";
+#endif
+
+	if (x > xmax - xeps)
+		xmax = x + xeps;
+
+	if (y > ymax - yeps)
+		ymax = y + yeps;
+
+	axisX->setRange(xmin, xmax);
+	axisY->setRange(ymin, ymax);
 }
