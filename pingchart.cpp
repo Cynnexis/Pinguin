@@ -83,4 +83,8 @@ void PingChart::onPointAdded(int index) {
 
 	axisX->setRange(xmin, xmax);
 	axisY->setRange(ymin, ymax);
+
+	// Delete the first items if the x-limit has been trespassed
+	while (ls_ping->points().length() >= xlimit)
+		ls_ping->remove(0);
 }

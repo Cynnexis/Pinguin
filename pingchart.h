@@ -36,8 +36,12 @@ public:
 private:
 	int xi;
 	const int xeps = 1, yeps = 10;
+
 	int xmin, xmax;
 	int ymin, ymax;
+
+	int xlimit = 8;
+
 	QValueAxis *axisX;
 	QValueAxis *axisY;
 	QLineSeries* ls_ping;
