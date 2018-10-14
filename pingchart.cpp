@@ -74,14 +74,11 @@ void PingChart::onPointAdded(int index) {
 	x = round(ls_ping->points()[index].x());
 	y = round(ls_ping->points()[index].y());
 
-#ifdef QT_DEBUG
-	qDebug() << "PingChart::onPointAdded(index=" + QString::number(index) + ")> Point (" + QString::number(x) + ", " + QString::number(y) + ") added";
-#endif
-
 	if (x > xmax - xeps)
 		xmax = x + xeps;
 
-	if (y > ymax - yeps)
+	// if it is the first point added or if the graph must be resized...
+	else if (ls_ping->points().length() == 1 || y > ymax - yeps)
 		ymax = y + yeps;
 
 	axisX->setRange(xmin, xmax);
