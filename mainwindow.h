@@ -10,12 +10,18 @@
 #include <QTcpSocket>
 #include <QMessageBox>
 #include <QElapsedTimer>
-#include <QtCharts/QChart>
+#include <QtCharts/QChartView>
+#include <QtCharts/QBarSeries>
+#include <QtCharts/QBarSet>
 #include <QtCharts/QLineSeries>
+#include <QtCharts/QLegend>
+#include <QtCharts/QBarCategoryAxis>
+#include <QtCharts/QValueAxis>
 
 #include <QDebug>
 
 using namespace std;
+QT_CHARTS_USE_NAMESPACE
 
 namespace Ui {
 	class MainWindow;
@@ -45,8 +51,8 @@ private:
 	PingLoop loop;
 	DSettings* diagSettings;
 
-	QtCharts::QLineSeries* ls_ping;
-	QtCharts::QChart* c_linePing;
+	QLineSeries* ls_ping;
+	QChart* c_linePing;
 };
 
 #endif // MAINWINDOW_H

@@ -20,12 +20,7 @@ void PingLoop::run() {
 		qDebug() << QString("[%1:%2] ping = %3ms").arg(address, QString::number(port), QString::number(ping_ms));
 
 		int ms = 1000;
-#ifdef Q_OS_WIN
-		Sleep(uint(ms));
-#else
-		struct timespec ts = { ms / 1000, (ms % 1000) * 1000 * 1000 };
-		nanosleep(&ts, NULL);
-#endif
+		QThread::sleep(1);
 	}
 }
 

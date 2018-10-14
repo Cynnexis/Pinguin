@@ -5,7 +5,7 @@
 #include "preferences.h"
 
 #ifdef Q_OS_WIN
-#include <windows.h> // for Sleep
+//#include <windows.h> // for Sleep
 #endif
 
 #include <iostream>
