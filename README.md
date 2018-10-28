@@ -1,6 +1,6 @@
 # Pinguin #
 
-![language: C++][badge-language] ![framework: Qt][badge-framework] ![license: AGPL-3.0][badge-license] ![branch: developer][badge-branch]
+![language: C++][badge-language] ![framework: Qt][badge-framework] ![license: AGPL-3.0][badge-license]
 
 ## Getting Started ##
 
@@ -32,4 +32,3 @@ This project is under the **GNU Affero General Public License v3.0** - see [`LIC
 [badge-language]: https://img.shields.io/badge/language-C++-purple.svg?longCache=true&style=flat
 [badge-framework]: https://img.shields.io/badge/framework-Qt-green.svg?longCache=true&style=flat
 [badge-license]: https://img.shields.io/badge/license-AGPL--3.0-yellow.svg?longCache=true&style=flat
-[badge-branch]: https://img.shields.io/badge/branch-dev-cyan.svg?longCache=true&style=flat
