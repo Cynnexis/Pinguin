@@ -19,4 +19,9 @@
         <file>res/icons/material-design/ic_pause_48px.svg</file>
         <file>res/icons/material-design/ic_play_arrow_48px.svg</file>
     </qresource>
+    <qresource prefix="/css">
+        <file>res/css/abstract-style.css</file>
+        <file>res/css/dark-style.css</file>
+        <file>res/css/light-style.css</file>
+    </qresource>
 </RCC>

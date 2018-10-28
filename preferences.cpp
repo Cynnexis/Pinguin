@@ -166,3 +166,40 @@ void Preferences::setThresholdLabel(QString thresholdLabel) {
 void Preferences::initThresholdLabel() {
 	setThresholdLabel("Playable");
 }
+
+Theme Preferences::getTheme() {
+	bool success = false;
+	int i_theme = settings.value("style/theme", "").toInt(&success);
+
+	if (!success) {
+		initTheme();
+		return getTheme();
+	}
+
+	Theme t = static_cast<Theme>(i_theme);
+
+	if (t == Theme::LIGHT || t == Theme::DARK)
+		return static_cast<Theme>(i_theme);
+	else {
+		initTheme();
+		return getTheme();
+	}
+}
+
+void Preferences::setTheme(Theme theme) {
+	switch (theme)
+	{
+		case Theme::LIGHT:
+			settings.setValue("style/theme", 0);
+			emit themeChanged(theme);
+			break;
+		case Theme::DARK:
+			settings.setValue("style/theme", 1);
+			emit themeChanged(theme);
+			break;
+	}
+}
+
+void Preferences::initTheme() {
+	setTheme(Theme::LIGHT);
+}

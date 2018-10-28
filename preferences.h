@@ -7,6 +7,7 @@
 #include <QDebug>
 
 #include "networkutility.h"
+#include "theme.h"
 
 using namespace std;
 
@@ -45,6 +46,10 @@ public:
 	void setThresholdLabel(QString thresholdLabel);
 	void initThresholdLabel();
 
+	Theme getTheme();
+	void setTheme(Theme theme);
+	void initTheme();
+
 signals:
 	void firstLaunchChanged(bool);
 	void addressChanged(QString);
@@ -53,6 +58,7 @@ signals:
 	void showThresholdChanged(bool);
 	void thresholdValueChanged(int);
 	void thresholdLabelChanged(QString);
+	void themeChanged(Theme);
 
 private:
 	explicit Preferences(QObject* parent = nullptr);

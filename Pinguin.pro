@@ -41,7 +41,8 @@ HEADERS += \
 	networkutility.h \
     pingloop.h \
     preferences.h \
-    pingchart.h
+    pingchart.h \
+    theme.h
 
 FORMS += \
         mainwindow.ui \

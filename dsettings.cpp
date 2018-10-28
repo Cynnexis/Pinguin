@@ -17,6 +17,17 @@ DSettings::DSettings(QWidget *parent) :
 	ui->le_port->setText(QString::number(pref->getPort()));
 	ui->l_result->setText("");
 	ui->sb_timeout_s->setValue(pref->getTimeout());
+	switch (pref->getTheme())
+	{
+		case Theme::LIGHT:
+			ui->rb_themeLight->setChecked(true);
+			ui->rb_themeDark->setChecked(false);
+			break;
+		case Theme::DARK:
+			ui->rb_themeDark->setChecked(true);
+			ui->rb_themeLight->setChecked(false);
+			break;
+	}
 }
 
 DSettings::~DSettings() {
@@ -74,6 +85,21 @@ void DSettings::on_pb_checkConnection_clicked() {
 
 void DSettings::on_sb_timeout_s_editingFinished() {
 	pref->setTimeout(ui->sb_timeout_s->value());
+}
+
+void DSettings::on_rb_themeLight_clicked() {
+	if (ui->rb_themeLight->isChecked())
+		on_rb_theme_clicked(Theme::LIGHT);
+}
+
+void DSettings::on_rb_themeDark_clicked() {
+	if (ui->rb_themeDark->isChecked())
+		on_rb_theme_clicked(Theme::DARK);
+}
+
+void DSettings::on_rb_theme_clicked(Theme theme) {
+	pref->setTheme(theme);
+	// TODO: Refresh the style of this dialog and MainWindow
 }
 
 void DSettings::on_pb_ok_clicked() {
