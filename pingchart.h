@@ -12,6 +12,8 @@
 #include <QtCharts/QValueAxis>
 #include <QDebug>
 
+#include "preferences.h"
+
 QT_CHARTS_USE_NAMESPACE
 using namespace std;
 
@@ -24,6 +26,9 @@ public:
 
 	QLineSeries& getSeries();
 
+	int getThreshold();
+	void setThreshold(int threshold);
+
 	void append(const QPointF point);
 	void append(const qreal x, const qreal y);
 	void append(const qreal y);
@@ -34,6 +39,8 @@ public:
 	PingChart& operator<<(const qreal y);
 
 private:
+	Preferences* pref;
+
 	int xi;
 	const int xeps = 1, yeps = 10;
 
@@ -42,12 +49,19 @@ private:
 
 	int xlimit = 15;
 
-	QValueAxis *axisX;
-	QValueAxis *axisY;
+	int threshold = -1;
+
+	QValueAxis* axisX;
+	QValueAxis* axisY;
 	QLineSeries* ls_ping;
+	QLineSeries* ls_threshold;
 
 private slots:
 	void onPointAdded(int index);
+	void onShowThresholdChanged(bool showThreshold);
+	void onThresholdValueChanged(int thresholdValue);
+	void onThresholdLabelChanged(QString thresholdLabel);
+	void addThresholdPoint();
 };
 
 #endif // PINGCHART_H

@@ -10,6 +10,9 @@ DSettings::DSettings(QWidget *parent) :
 	pref = Preferences::getInstance();
 
 	// Load settings
+	ui->cb_showThreshold->setChecked(pref->getShowThreshold());
+	ui->sb_thresholdValue->setValue(pref->getThresholdValue());
+	ui->le_thresholdLabel->setText(pref->getThresholdLabel());
 	ui->le_host->setText(pref->getAddress());
 	ui->le_port->setText(QString::number(pref->getPort()));
 	ui->l_result->setText("");
@@ -18,6 +21,20 @@ DSettings::DSettings(QWidget *parent) :
 
 DSettings::~DSettings() {
 	delete ui;
+}
+
+void DSettings::on_cb_showThreshold_toggled(bool checked) {
+	pref->setShowThreshold(checked);
+	ui->sb_thresholdValue->setEnabled(checked);
+	ui->le_thresholdLabel->setEnabled(checked);
+}
+
+void DSettings::on_sb_thresholdValue_editingFinished() {
+	pref->setThresholdValue(ui->sb_thresholdValue->value());
+}
+
+void DSettings::on_le_thresholdLabel_editingFinished() {
+	pref->setThresholdLabel(ui->le_thresholdLabel->text());
 }
 
 void DSettings::on_le_host_editingFinished() {

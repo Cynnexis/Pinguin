@@ -110,3 +110,59 @@ void Preferences::setTimeout(int timeout_s) {
 void Preferences::initTimeout() {
 	setTimeout(30);
 }
+
+bool Preferences::getShowThreshold() {
+	return settings.value("app/showThreshold", true).toBool();
+}
+
+void Preferences::setShowThreshold(bool showThreshold) {
+	settings.setValue("app/showThreshold", showThreshold);
+	emit showThresholdChanged(showThreshold);
+}
+
+void Preferences::initShowThreshold() {
+	setShowThreshold(true);
+}
+
+int Preferences::getThresholdValue() {
+	bool success = false;
+	int thresholdValue = settings.value("app/thresholdValue", -1).toInt(&success);
+	if (success && 0 <= thresholdValue && thresholdValue <= 10000)
+		return thresholdValue;
+	else {
+		initThresholdValue();
+		return getThresholdValue();
+	}
+}
+
+void Preferences::setThresholdValue(int thresholdValue) {
+	if (0 <= thresholdValue && thresholdValue <= 10000) {
+		settings.setValue("app/thresholdValue", thresholdValue);
+		emit thresholdValueChanged(thresholdValue);
+	}
+}
+
+void Preferences::initThresholdValue() {
+	setThresholdValue(100);
+}
+
+QString Preferences::getThresholdLabel() {
+	QString thresholdLabel = settings.value("app/thresholdLabel", "").toString();
+	if (!thresholdLabel.isEmpty())
+		return thresholdLabel;
+	else {
+		initThresholdLabel();
+		return getThresholdLabel();
+	}
+}
+
+void Preferences::setThresholdLabel(QString thresholdLabel) {
+	if (!thresholdLabel.isEmpty()) {
+		settings.setValue("app/thresholdLabel", thresholdLabel);
+		emit thresholdLabelChanged(thresholdLabel);
+	}
+}
+
+void Preferences::initThresholdLabel() {
+	setThresholdLabel("Playable");
+}

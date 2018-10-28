@@ -17,7 +17,7 @@ void PingLoop::run() {
 	while (!_stop) {
 		while (_pause);
 		int ping_ms = ping.measure(address, port);
-		qDebug() << QString("[%1:%2] ping = %3ms").arg(address, QString::number(port), QString::number(ping_ms));
+		//qDebug() << QString("[%1:%2] ping = %3ms").arg(address, QString::number(port), QString::number(ping_ms));
 		QThread::sleep(1);
 	}
 }

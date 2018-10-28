@@ -73,7 +73,6 @@ void MainWindow::onPortUpdated(int port) {
 
 void MainWindow::onReceivePing(int ping_ms) {
 	if (ping_ms > 0) {
-		qDebug() << "Connected: ping = " << ping_ms << "ms";
 		ui->le_currentPing->setText(QString::number(ping_ms));
 		pc_chart->append(ping_ms);
 		pc_chart->update();
