@@ -19,7 +19,6 @@ PingChart::PingChart() : QChart() {
 	this->addAxis(axisX, Qt::AlignBottom);
 
 	ls_ping = new QLineSeries(this);
-	connect(ls_ping, SIGNAL(pointAdded(int)), this, SLOT(onPointAdded(int)));
 
 	this->legend()->hide();
 	this->addSeries(ls_ping);
@@ -30,6 +29,8 @@ PingChart::PingChart() : QChart() {
 
 	ls_ping->attachAxis(axisX);
 	ls_ping->attachAxis(axisY);
+
+	connect(ls_ping, SIGNAL(pointAdded(int)), this, SLOT(onPointAdded(int)));
 }
 
 QLineSeries& PingChart::getSeries() {
@@ -81,10 +82,15 @@ void PingChart::onPointAdded(int index) {
 	else if (ls_ping->points().length() == 1 || y > ymax - yeps)
 		ymax = y + yeps;
 
-	axisX->setRange(xmin, xmax);
-	axisY->setRange(ymin, ymax);
-
-	// Delete the first items if the x-limit has been trespassed
+	// Delete the first items if the number of points has reached a threshold
 	while (ls_ping->points().length() >= xlimit)
 		ls_ping->remove(0);
+
+	// Update xmin
+	if (ls_ping->points().size() > 0 && ls_ping->points()[0].x() > xmin)
+		xmin = round(ls_ping->points()[0].x());
+
+	// Update the axis
+	axisX->setRange(xmin, xmax);
+	axisY->setRange(ymin, ymax);
 }
