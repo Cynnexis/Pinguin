@@ -260,6 +260,16 @@
              </property>
              <layout class="QVBoxLayout" name="verticalLayout_12">
               <item>
+               <widget class="QRadioButton" name="rb_themeDefault">
+                <property name="text">
+                 <string>Default</string>
+                </property>
+                <attribute name="buttonGroup">
+                 <string notr="true">bg_theme</string>
+                </attribute>
+               </widget>
+              </item>
+              <item>
                <widget class="QRadioButton" name="rb_themeLight">
                 <property name="text">
                  <string>Light</string>

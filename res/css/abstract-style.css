@@ -1,2 +1,16 @@
 
+QMainWindow, QChart {
+	background-color: @backgroundColor;
+}
 
+QLineEdit {
+	border: 2px @primaryColor solid;
+	border-radius: 10px;
+}
+
+QMenu::item:hover {
+	color: black;
+}
+QMenu::item {
+	color: black;
+}

@@ -178,7 +178,7 @@ Theme Preferences::getTheme() {
 
 	Theme t = static_cast<Theme>(i_theme);
 
-	if (t == Theme::LIGHT || t == Theme::DARK)
+	if (t == Theme::DEFAULT || t == Theme::LIGHT || t == Theme::DARK)
 		return static_cast<Theme>(i_theme);
 	else {
 		initTheme();
@@ -189,12 +189,16 @@ Theme Preferences::getTheme() {
 void Preferences::setTheme(Theme theme) {
 	switch (theme)
 	{
-		case Theme::LIGHT:
+		case Theme::DEFAULT:
 			settings.setValue("style/theme", 0);
 			emit themeChanged(theme);
 			break;
-		case Theme::DARK:
+		case Theme::LIGHT:
 			settings.setValue("style/theme", 1);
+			emit themeChanged(theme);
+			break;
+		case Theme::DARK:
+			settings.setValue("style/theme", 2);
 			emit themeChanged(theme);
 			break;
 	}

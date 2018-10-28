@@ -2,8 +2,9 @@
 #define THEME_H
 
 enum class Theme : int {
-	LIGHT = 0,
-	DARK = 1
+	DEFAULT = 0,
+	LIGHT = 1,
+	DARK = 2
 };
 
 #endif // THEME_H

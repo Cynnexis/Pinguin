@@ -6,6 +6,7 @@
 #include "dsettings.h"
 #include "pingchart.h"
 #include "pingloop.h"
+#include "stylemanager.h"
 
 #include <QMainWindow>
 #include <QTcpSocket>
@@ -50,6 +51,7 @@ private slots:
 	void on_actionSettings_triggered();
 	void on_actionExit_triggered();
 	void on_actionMagic_Debug_triggered();
+	void on_actionForce_Theme_Update_triggered();
 	void on_actionAbout_Pinguin_triggered();
 	void on_actionAbout_Qt_triggered();
 	void on_actionSee_Source_Code_triggered();
@@ -58,6 +60,7 @@ private:
 	Ui::MainWindow *ui;
 
 	Preferences* pref;
+	StyleManager* style;
 	PingLoop loop;
 	DSettings* diagSettings;
 

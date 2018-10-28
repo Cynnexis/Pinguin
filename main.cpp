@@ -16,6 +16,8 @@ int main(int argc, char *argv[])
 	QFontDatabase::addApplicationFont(":/fonts/roboto/res/fonts/Roboto-Regular.ttf");
 
 	MainWindow w;
+	Preferences::getInstance(&w);
+	StyleManager::getInstance(&w);
 	w.show();
 
 	return a.exec();

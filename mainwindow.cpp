@@ -8,6 +8,7 @@ MainWindow::MainWindow(QWidget *parent) :
 	this->setWindowTitle(qApp->applicationName());
 
 	pref = Preferences::getInstance(this);
+	style = StyleManager::getInstance(this);
 	clipboard = QApplication::clipboard();
 
 	ui->menuFile->setTitle(qApp->applicationName());
@@ -71,27 +72,7 @@ void MainWindow::onReceivePing(int ping_ms) {
 }
 
 void MainWindow::onThemeChanged(Theme theme) {
-	QString name;
-
-	switch (theme)
-	{
-		case Theme::LIGHT:
-			name = "light";
-			break;
-		case Theme::DARK:
-			name = "dark";
-			break;
-	}
-
-#ifdef QT_DEBUG
-	QFile f_css(QString("..\\res\\css\\%1-style.css").arg(name));
-#else
-	QFile f_css(QString(":/css/res/css/%1-style.css").arg(name));
-#endif
-	f_css.open(QFile::ReadOnly);
-	QString style = f_css.readAll();
-	//qDebug() << "Style: " + style;
-	qApp->setStyleSheet(style);
+	style->apply(theme);
 }
 
 void MainWindow::onThemeChanged() {
@@ -127,6 +108,10 @@ void MainWindow::on_actionExit_triggered() {
 
 void MainWindow::on_actionMagic_Debug_triggered() {
 	// Add your debugging code here.
+}
+
+void MainWindow::on_actionForce_Theme_Update_triggered() {
+	onThemeChanged();
 }
 
 void MainWindow::on_actionAbout_Pinguin_triggered() {

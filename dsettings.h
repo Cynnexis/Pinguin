@@ -27,6 +27,7 @@ private slots:
 	void on_le_port_editingFinished();
 	void on_pb_checkConnection_clicked();
 	void on_sb_timeout_s_editingFinished();
+	void on_rb_themeDefault_clicked();
 	void on_rb_themeLight_clicked();
 	void on_rb_themeDark_clicked();
 	void on_rb_theme_clicked(Theme theme);

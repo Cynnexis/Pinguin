@@ -1,4 +1,16 @@
 
-QMainWindow, QWidget {
-	background-color: #f4f4f4;
+QMainWindow, QChart {
+	background-color: rgb(240, 240, 240);
+}
+
+QLineEdit {
+	border: 2px blue solid;
+	border-radius: 10px;
+}
+
+QMenu::item:hover {
+	color: black;
+}
+QMenu::item {
+	color: black;
 }

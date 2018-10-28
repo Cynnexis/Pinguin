@@ -146,6 +146,7 @@
      <string>Debug🐧</string>
     </property>
     <addaction name="actionMagic_Debug"/>
+    <addaction name="actionForce_Theme_Update"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuDebug"/>
@@ -300,6 +301,11 @@
     <font>
      <family>Roboto</family>
     </font>
+   </property>
+  </action>
+  <action name="actionForce_Theme_Update">
+   <property name="text">
+    <string>Force Theme Update</string>
    </property>
   </action>
  </widget>
