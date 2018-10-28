@@ -8,10 +8,17 @@ MainWindow::MainWindow(QWidget *parent) :
 	this->setWindowTitle(qApp->applicationName());
 
 	pref = Preferences::getInstance(this);
+	clipboard = QApplication::clipboard();
+
+	ui->menuFile->setTitle(qApp->applicationName());
 
 	connect(pref, SIGNAL(addressChanged(QString)), this, SLOT(onAddressUpdated(QString)));
 	connect(pref, SIGNAL(portChanged(int)), this, SLOT(onPortUpdated(int)));
 	connect(&loop, SIGNAL(resultAvailable(int)), this, SLOT(onReceivePing(int)));
+
+	ui->l_server_ip->setTextFormat(Qt::RichText);
+	ui->l_server_ip->setTextInteractionFlags(Qt::TextBrowserInteraction);
+	ui->l_server_ip->setOpenExternalLinks(true);
 
 	updateServer(pref->getAddress(), pref->getPort());
 
@@ -36,23 +43,8 @@ MainWindow::~MainWindow() {
 }
 
 void MainWindow::updateServer(QString address, int port) {
-	QString server = "[";
-	QString actual = ui->l_server_ip->text();
-
-	if (address != "")
-		server += address;
-	else
-		server += actual.replace("[", "").split(":")[0];
-
-	server += ":";
-
-	if (port > 0)
-		server += QString::number(port);
-	else
-		server += actual.replace("]", "").split(":")[1];
-
-	server += "]";
-	ui->l_server_ip->setText(server);
+	QString server = tr("<h1>Server: <a href=\"%1\">%1</a></h1>", "\"%1\" represents the address to the server.");
+	ui->l_server_ip->setText(server.arg(address + ":" + QString::number(port)));
 }
 
 void MainWindow::onAddressUpdated(QString address) {
@@ -72,6 +64,22 @@ void MainWindow::onReceivePing(int ping_ms) {
 	}
 	else
 		ui->statusBar->showMessage(tr("The host cannot be reached. Is it in Antartica?"), 10000);
+}
+
+void MainWindow::on_actionPause_Ping_triggered() {
+	if (loop.isPaused()) {
+		loop.resume();
+		ui->actionPause_Ping->setText(tr("Pause Ping"));
+	}
+	else {
+		loop.pause();
+		ui->actionPause_Ping->setText(tr("Resume Ping"));
+	}
+}
+
+void MainWindow::on_actionCopy_current_ping_to_clipboard_triggered() {
+	clipboard->setText(ui->le_currentPing->text());
+	ui->statusBar->showMessage(tr("Ping value copied to clipboard!", "Status message"), 5000);
 }
 
 void MainWindow::on_actionSettings_triggered() {

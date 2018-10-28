@@ -22,6 +22,10 @@ void PingLoop::run() {
 	}
 }
 
+bool PingLoop::isPaused() {
+	return _pause;
+}
+
 void PingLoop::resume() {
 	_pause = false;
 }

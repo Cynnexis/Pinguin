@@ -23,6 +23,8 @@ public:
 	PingLoop(QObject* parent = nullptr);
 	void run() override;
 
+	bool isPaused();
+
 public slots:
 	void resume();
 	void pause();

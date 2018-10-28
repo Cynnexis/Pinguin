@@ -43,6 +43,8 @@ private slots:
 	void onPortUpdated(int port);
 	void onReceivePing(int ping_ms);
 
+	void on_actionPause_Ping_triggered();
+	void on_actionCopy_current_ping_to_clipboard_triggered();
 	void on_actionSettings_triggered();
 	void on_actionExit_triggered();
 	void on_actionMagic_Debug_triggered();
@@ -57,6 +59,8 @@ private:
 	DSettings* diagSettings;
 
 	PingChart* pc_chart;
+
+	QClipboard* clipboard;
 };
 
 #endif // MAINWINDOW_H
