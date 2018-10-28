@@ -76,16 +76,6 @@
       </layout>
      </widget>
     </item>
-    <item>
-     <widget class="QPushButton" name="pb_debug">
-      <property name="cursor">
-       <cursorShape>ArrowCursor</cursorShape>
-      </property>
-      <property name="text">
-       <string>Mighty Magic Debugging Button🐧</string>
-      </property>
-     </widget>
-    </item>
    </layout>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -114,7 +104,14 @@
     <addaction name="separator"/>
     <addaction name="actionSee_Source_Code"/>
    </widget>
+   <widget class="QMenu" name="menuDebug">
+    <property name="title">
+     <string>Debug🐧</string>
+    </property>
+    <addaction name="actionMagic_Debug"/>
+   </widget>
    <addaction name="menuFile"/>
+   <addaction name="menuDebug"/>
    <addaction name="menuHelp"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
@@ -155,6 +152,11 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="actionMagic_Debug">
+   <property name="text">
+    <string>Magic Debug</string>
    </property>
   </action>
  </widget>

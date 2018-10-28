@@ -21,9 +21,9 @@ MainWindow::MainWindow(QWidget *parent) :
 
 #ifdef QT_DEBUG
 	qDebug() << tr("It's DEBUG TIME!");
-	ui->pb_debug->setVisible(true);
+	ui->menuDebug->menuAction()->setVisible(true);
 #else
-	ui->pb_debug->setVisible(false);
+	ui->menuDebug->menuAction()->setVisible(false);
 #endif
 
 	loop.start();
@@ -55,14 +55,6 @@ void MainWindow::updateServer(QString address, int port) {
 	ui->l_server_ip->setText(server);
 }
 
-void MainWindow::on_pb_debug_clicked() {
-	QString content = "";
-	for (int i = 0; i < pc_chart->getSeries().points().length(); i++)
-		content += "(" + QString::number(pc_chart->getSeries().points()[i].x()) + ", " + QString::number(pc_chart->getSeries().points()[i].y()) + ")\n";
-
-	QMessageBox::information(this, "Debug", content);
-}
-
 void MainWindow::onAddressUpdated(QString address) {
 	updateServer(address);
 }
@@ -89,6 +81,10 @@ void MainWindow::on_actionSettings_triggered() {
 
 void MainWindow::on_actionExit_triggered() {
 	qApp->exit();
+}
+
+void MainWindow::on_actionMagic_Debug_triggered() {
+	// Add your debugging code here.
 }
 
 void MainWindow::on_actionAbout_Pinguin_triggered() {

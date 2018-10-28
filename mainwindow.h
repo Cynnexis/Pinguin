@@ -39,13 +39,13 @@ public:
 	void updateServer(QString address = "", int port = -1);
 
 private slots:
-	void on_pb_debug_clicked();
 	void onAddressUpdated(QString address);
 	void onPortUpdated(int port);
 	void onReceivePing(int ping_ms);
 
 	void on_actionSettings_triggered();
 	void on_actionExit_triggered();
+	void on_actionMagic_Debug_triggered();
 	void on_actionAbout_Pinguin_triggered();
 	void on_actionAbout_Qt_triggered();
 
