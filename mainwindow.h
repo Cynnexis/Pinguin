@@ -50,6 +50,7 @@ private slots:
 	void on_actionMagic_Debug_triggered();
 	void on_actionAbout_Pinguin_triggered();
 	void on_actionAbout_Qt_triggered();
+	void on_actionSee_Source_Code_triggered();
 
 private:
 	Ui::MainWindow *ui;

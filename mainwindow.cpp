@@ -104,3 +104,7 @@ void MainWindow::on_actionAbout_Pinguin_triggered() {
 void MainWindow::on_actionAbout_Qt_triggered() {
 	QMessageBox::aboutQt(this, tr("About Qt..."));
 }
+
+void MainWindow::on_actionSee_Source_Code_triggered() {
+	QDesktopServices::openUrl(QUrl("https://github.com/Cynnexis/Pinguin"));
+}
