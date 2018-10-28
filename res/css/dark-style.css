@@ -1,2 +1,4 @@
 
-
+QMainWindow, QWidget {
+	background-color: #232e3d;
+}

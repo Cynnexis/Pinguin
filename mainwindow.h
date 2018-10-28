@@ -42,6 +42,8 @@ private slots:
 	void onAddressUpdated(QString address);
 	void onPortUpdated(int port);
 	void onReceivePing(int ping_ms);
+	void onThemeChanged(Theme theme);
+	void onThemeChanged();
 
 	void on_actionPause_Ping_triggered();
 	void on_actionCopy_current_ping_to_clipboard_triggered();

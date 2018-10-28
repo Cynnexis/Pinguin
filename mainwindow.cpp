@@ -14,6 +14,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
 	connect(pref, SIGNAL(addressChanged(QString)), this, SLOT(onAddressUpdated(QString)));
 	connect(pref, SIGNAL(portChanged(int)), this, SLOT(onPortUpdated(int)));
+	connect(pref, SIGNAL(themeChanged(Theme)), this, SLOT(onThemeChanged(Theme)));
 	connect(&loop, SIGNAL(resultAvailable(int)), this, SLOT(onReceivePing(int)));
 
 	ui->l_server_ip->setTextFormat(Qt::RichText);
@@ -32,6 +33,9 @@ MainWindow::MainWindow(QWidget *parent) :
 #else
 	ui->menuDebug->menuAction()->setVisible(false);
 #endif
+
+	// Load style
+	onThemeChanged();
 
 	loop.start();
 }
@@ -64,6 +68,34 @@ void MainWindow::onReceivePing(int ping_ms) {
 	}
 	else
 		ui->statusBar->showMessage(tr("The host cannot be reached. Is it in Antartica?"), 10000);
+}
+
+void MainWindow::onThemeChanged(Theme theme) {
+	QString name;
+
+	switch (theme)
+	{
+		case Theme::LIGHT:
+			name = "light";
+			break;
+		case Theme::DARK:
+			name = "dark";
+			break;
+	}
+
+#ifdef QT_DEBUG
+	QFile f_css(QString("..\\res\\css\\%1-style.css").arg(name));
+#else
+	QFile f_css(QString(":/css/res/css/%1-style.css").arg(name));
+#endif
+	f_css.open(QFile::ReadOnly);
+	QString style = f_css.readAll();
+	//qDebug() << "Style: " + style;
+	qApp->setStyleSheet(style);
+}
+
+void MainWindow::onThemeChanged() {
+	onThemeChanged(pref->getTheme());
 }
 
 void MainWindow::on_actionPause_Ping_triggered() {
