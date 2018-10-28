@@ -70,10 +70,12 @@ void MainWindow::on_actionPause_Ping_triggered() {
 	if (loop.isPaused()) {
 		loop.resume();
 		ui->actionPause_Ping->setText(tr("Pause Ping"));
+		ui->actionPause_Ping->setIcon(QIcon(":/icons/material-design/res/icons/material-design/ic_pause_48px.svg"));
 	}
 	else {
 		loop.pause();
 		ui->actionPause_Ping->setText(tr("Resume Ping"));
+		ui->actionPause_Ping->setIcon(QIcon(":/icons/material-design/res/icons/material-design/ic_play_arrow_48px.svg"));
 	}
 }
 

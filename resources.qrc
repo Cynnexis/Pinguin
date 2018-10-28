@@ -9,4 +9,14 @@
     <qresource prefix="/svg">
         <file alias="pinguin">res/svg/pinguin.svg</file>
     </qresource>
+    <qresource prefix="/icons"/>
+    <qresource prefix="/icons/material-design">
+        <file>res/icons/material-design/ic_settings_48px.svg</file>
+        <file>res/icons/material-design/ic_assignment_48px.svg</file>
+        <file>res/icons/material-design/ic_blur_on_48px.svg</file>
+        <file>res/icons/material-design/ic_exit_to_app_24px.svg</file>
+        <file>res/icons/material-design/ic_open_in_browser_48px.svg</file>
+        <file>res/icons/material-design/ic_pause_48px.svg</file>
+        <file>res/icons/material-design/ic_play_arrow_48px.svg</file>
+    </qresource>
 </RCC>
