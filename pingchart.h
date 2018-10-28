@@ -40,7 +40,7 @@ private:
 	int xmin, xmax;
 	int ymin, ymax;
 
-	int xlimit = 8;
+	int xlimit = 15;
 
 	QValueAxis *axisX;
 	QValueAxis *axisY;

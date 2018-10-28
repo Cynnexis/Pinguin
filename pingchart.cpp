@@ -38,7 +38,6 @@ QLineSeries& PingChart::getSeries() {
 }
 
 void PingChart::append(const QPointF point) {
-	qDebug() << "PingChart::append(" + QString::number(point.x()) + ", " + QString::number(point.y()) + ")> Point Added";
 	*ls_ping << point;
 }
 
@@ -75,20 +74,36 @@ void PingChart::onPointAdded(int index) {
 	x = round(ls_ping->points()[index].x());
 	y = round(ls_ping->points()[index].y());
 
-	if (x > xmax - xeps)
-		xmax = x + xeps;
-
-	// if it is the first point added or if the graph must be resized...
-	else if (ls_ping->points().length() == 1 || y > ymax - yeps)
-		ymax = y + yeps;
-
 	// Delete the first items if the number of points has reached a threshold
-	while (ls_ping->points().length() >= xlimit)
+	while (ls_ping->points().length() > 0 && ls_ping->points().length() >= xlimit)
 		ls_ping->remove(0);
 
-	// Update xmin
-	if (ls_ping->points().size() > 0 && ls_ping->points()[0].x() > xmin)
-		xmin = round(ls_ping->points()[0].x());
+	if (ls_ping->points().size() == 0)
+		return;
+
+	/*xmin = xmax = round(ls_ping->points()[0].x());
+	ymin = ymax = round(ls_ping->points()[0].y());*/
+	xmin = xmax = x;
+	ymin = ymax = y;
+
+	// Update the chart area
+	for (int i = 0; i < ls_ping->count(); i++) {
+		const QPointF& point = ls_ping->at(i);
+
+		if (point.x() > xmax)
+			xmax = round(point.x());
+
+		if (point.x() < xmin)
+			xmin = round(point.x());
+
+		if (point.y() > ymax)
+			ymax = round(point.y());
+	}
+
+	xmin = xmin - xeps;
+	xmax = xmax + xeps;
+	ymin = 0;
+	ymax = ymax + yeps;
 
 	// Update the axis
 	axisX->setRange(xmin, xmax);
