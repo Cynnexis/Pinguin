@@ -20,6 +20,9 @@ public:
 	~DSettings();
 
 private slots:
+	void on_cb_showThreshold_toggled(bool checked);
+	void on_sb_thresholdValue_editingFinished();
+	void on_le_thresholdLabel_editingFinished();
 	void on_le_host_editingFinished();
 	void on_le_port_editingFinished();
 	void on_pb_checkConnection_clicked();
