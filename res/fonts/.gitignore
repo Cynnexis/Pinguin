@@ -1,0 +1,5 @@
+# Ignore everyting but Roboto-Regular.ttf
+
+*
+!.gitignore
+!Roboto-Regular.ttf

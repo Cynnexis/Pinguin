@@ -22,6 +22,11 @@
    <locale language="English" country="Canada"/>
   </property>
   <widget class="QWidget" name="centralWidget">
+   <property name="font">
+    <font>
+     <family>Roboto</family>
+    </font>
+   </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
      <widget class="QWidget" name="w_header" native="true">
@@ -30,10 +35,11 @@
         <widget class="QLabel" name="l_server_ip">
          <property name="font">
           <font>
-           <family>Comfortaa Light</family>
-           <pointsize>12</pointsize>
+           <family>Roboto</family>
+           <pointsize>8</pointsize>
            <weight>50</weight>
            <bold>false</bold>
+           <kerning>true</kerning>
           </font>
          </property>
          <property name="text">
@@ -95,7 +101,17 @@
      <height>25</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Roboto</family>
+    </font>
+   </property>
    <widget class="QMenu" name="menuFile">
+    <property name="font">
+     <font>
+      <family>Roboto</family>
+     </font>
+    </property>
     <property name="title">
      <string>File</string>
     </property>
@@ -107,6 +123,11 @@
     <addaction name="actionExit"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
+    <property name="font">
+     <font>
+      <family>Roboto</family>
+     </font>
+    </property>
     <property name="title">
      <string>Help</string>
     </property>
@@ -116,6 +137,11 @@
     <addaction name="actionSee_Source_Code"/>
    </widget>
    <widget class="QMenu" name="menuDebug">
+    <property name="font">
+     <font>
+      <family>Roboto</family>
+     </font>
+    </property>
     <property name="title">
      <string>Debug🐧</string>
     </property>
@@ -126,6 +152,11 @@
    <addaction name="menuHelp"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
+   <property name="font">
+    <font>
+     <family>Roboto</family>
+    </font>
+   </property>
    <property name="movable">
     <bool>true</bool>
    </property>
@@ -143,7 +174,13 @@
    <addaction name="separator"/>
    <addaction name="actionSettings"/>
   </widget>
-  <widget class="QStatusBar" name="statusBar"/>
+  <widget class="QStatusBar" name="statusBar">
+   <property name="font">
+    <font>
+     <family>Roboto</family>
+    </font>
+   </property>
+  </widget>
   <action name="actionAbout_Pinguin">
    <property name="icon">
     <iconset>
@@ -153,10 +190,20 @@
    <property name="text">
     <string>About Pinguin</string>
    </property>
+   <property name="font">
+    <font>
+     <family>Roboto</family>
+    </font>
+   </property>
   </action>
   <action name="actionAbout_Qt">
    <property name="text">
     <string>About Qt</string>
+   </property>
+   <property name="font">
+    <font>
+     <family>Roboto</family>
+    </font>
    </property>
   </action>
   <action name="actionSee_Source_Code">
@@ -168,6 +215,11 @@
    <property name="text">
     <string>See Source Code</string>
    </property>
+   <property name="font">
+    <font>
+     <family>Roboto</family>
+    </font>
+   </property>
   </action>
   <action name="actionSettings">
    <property name="icon">
@@ -177,6 +229,11 @@
    </property>
    <property name="text">
     <string>Settings</string>
+   </property>
+   <property name="font">
+    <font>
+     <family>Roboto</family>
+    </font>
    </property>
    <property name="shortcut">
     <string>Ctrl+P</string>
@@ -191,6 +248,11 @@
    <property name="text">
     <string>Exit</string>
    </property>
+   <property name="font">
+    <font>
+     <family>Roboto</family>
+    </font>
+   </property>
    <property name="shortcut">
     <string>Ctrl+Q</string>
    </property>
@@ -204,6 +266,11 @@
    <property name="text">
     <string>Magic Debug</string>
    </property>
+   <property name="font">
+    <font>
+     <family>Roboto</family>
+    </font>
+   </property>
   </action>
   <action name="actionPause_Ping">
    <property name="icon">
@@ -214,6 +281,11 @@
    <property name="text">
     <string>Pause Ping</string>
    </property>
+   <property name="font">
+    <font>
+     <family>Roboto</family>
+    </font>
+   </property>
   </action>
   <action name="actionCopy_current_ping_to_clipboard">
    <property name="icon">
@@ -223,6 +295,11 @@
    </property>
    <property name="text">
     <string>Copy current ping to clipboard</string>
+   </property>
+   <property name="font">
+    <font>
+     <family>Roboto</family>
+    </font>
    </property>
   </action>
  </widget>

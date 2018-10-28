@@ -10,6 +10,11 @@
     <height>432</height>
    </rect>
   </property>
+  <property name="font">
+   <font>
+    <family>Roboto</family>
+   </font>
+  </property>
   <property name="windowTitle">
    <string>Settings</string>
   </property>
@@ -17,7 +22,7 @@
    <item>
     <widget class="QTabWidget" name="tabWidget">
      <property name="currentIndex">
-      <number>0</number>
+      <number>2</number>
      </property>
      <widget class="QWidget" name="tab_2">
       <attribute name="title">
@@ -35,7 +40,7 @@
             <x>0</x>
             <y>0</y>
             <width>446</width>
-            <height>299</height>
+            <height>297</height>
            </rect>
           </property>
           <layout class="QVBoxLayout" name="verticalLayout_8">
@@ -129,7 +134,7 @@
             <x>0</x>
             <y>0</y>
             <width>446</width>
-            <height>299</height>
+            <height>297</height>
            </rect>
           </property>
           <layout class="QVBoxLayout" name="verticalLayout_9">
@@ -244,7 +249,7 @@
             <x>0</x>
             <y>0</y>
             <width>446</width>
-            <height>299</height>
+            <height>297</height>
            </rect>
           </property>
           <layout class="QVBoxLayout" name="verticalLayout_11">

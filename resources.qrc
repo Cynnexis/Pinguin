@@ -24,4 +24,24 @@
         <file>res/css/dark-style.css</file>
         <file>res/css/light-style.css</file>
     </qresource>
+    <qresource prefix="/fonts"/>
+    <qresource prefix="/fonts/roboto">
+        <file>res/fonts/Roboto-Black_0.ttf</file>
+        <file>res/fonts/Roboto-BlackItalic.ttf</file>
+        <file>res/fonts/Roboto-Bold_0.ttf</file>
+        <file>res/fonts/Roboto-BoldItalic.ttf</file>
+        <file>res/fonts/RobotoCondensed-Bold.ttf</file>
+        <file>res/fonts/RobotoCondensed-BoldItalic.ttf</file>
+        <file>res/fonts/RobotoCondensed-Italic.ttf</file>
+        <file>res/fonts/RobotoCondensed-Light.ttf</file>
+        <file>res/fonts/RobotoCondensed-LightItalic.ttf</file>
+        <file>res/fonts/RobotoCondensed-Regular.ttf</file>
+        <file>res/fonts/Roboto-Light_0.ttf</file>
+        <file>res/fonts/Roboto-LightItalic.ttf</file>
+        <file>res/fonts/Roboto-Medium_0.ttf</file>
+        <file>res/fonts/Roboto-MediumItalic.ttf</file>
+        <file>res/fonts/Roboto-Regular.ttf</file>
+        <file>res/fonts/Roboto-Thin_0.ttf</file>
+        <file>res/fonts/Roboto-ThinItalic.ttf</file>
+    </qresource>
 </RCC>
